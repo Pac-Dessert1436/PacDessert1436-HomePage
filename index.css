@@ -152,8 +152,15 @@ section {
 }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 .avatar-image {
@@ -185,7 +192,8 @@ section {
     flex-wrap: wrap;
 }
 
-.btn-primary, .btn-secondary {
+.btn-primary,
+.btn-secondary {
     padding: 0.875rem 2rem;
     border-radius: 30px;
     text-decoration: none;
@@ -322,6 +330,7 @@ section {
     border-radius: 12px;
     color: var(--primary-color);
     font-size: 0.8rem;
+    font-weight: bold;
 }
 
 .project-links {
@@ -334,9 +343,9 @@ section {
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 1rem;
-    background-color: rgba(102, 126, 234, 0.15);
+    background-color: var(--secondary-color);
     border-radius: 8px;
-    color: var(--primary-color);
+    color: var(--text-primary);
     text-decoration: none;
     font-size: 0.9rem;
     transition: all 0.3s ease;
