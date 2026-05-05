@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pac-Dessert1436: Personal .NET Application Portfolio</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Pac-Dessert1436</h1>
+            </div>
+            <div class="site-name">
+                <h2>Personal .NET Application Portfolio</h2>
+            </div>
+            <div class="nav-links">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <button class="lang-btn" id="langBtn" onclick="toggleLanguage()">
+                    <span class="lang-icon">🌐</span>
+                    <span class="lang-text">中文</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <div class="avatar">
+                    <div class="avatar-circle">
+                        <span class="avatar-icon">👨‍💻</span>
+                    </div>
+                </div>
+                <h2 class="hero-title">Hi, I'm Pac-Dessert1436</h2>
+                <p class="hero-subtitle">Non-CS Background | Self-taught Programmer | .NET Enthusiast</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn-primary">View Projects</a>
+                    <a href="#contact" class="btn-secondary">Contact Me</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <p>I am a passionate self-taught programmer with a non-computer science background. Although my major
+                    was not in computer science, I dedicated my spare time to learning and practicing the .NET
+                    technology stack.</p>
+                <p>From the rigor of C# to the flexibility of Python, and the sentiment of VB.NET, I enjoy exploring the
+                    fun of programming in different languages.</p>
+                <p>This website is solely for recording my learning journey and sharing technical knowledge, without any
+                    commercial operation.</p>
+                <div class="skills">
+                    <h3>Skills</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">VB.NET</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">ASP.NET Core</span>
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">SQLite</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2 class="section-title">Project Showcase</h2>
+            <div class="projects-grid">
+                <div class="project-card active-project">
+                    <div class="project-badge">Live</div>
+                    <div class="project-icon">💻</div>
+                    <h3 class="project-title">Try C# (TryCSharp)</h3>
+                    <p class="project-description">An online C# code editor supporting real-time compilation and
+                        execution, helping beginners learn C# programming quickly.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">ASP.NET Core</span>
+                        <span class="tech-tag">Blazor</span>
+                        <span class="tech-tag">C#</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://trycsharp.pac-dessert1436.net" target="_blank" class="project-link">
+                            <span>🌐</span> Try Online
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">🍒</div>
+                    <h3 class="project-title">PacDessert1436.MonoGame.StartKitVB</h3>
+                    <p class="project-description">A MonoGame-based game development toolkit for VB.NET developers,
+                        providing a solid foundation for building games.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">.NET 8</span>
+                        <span class="tech-tag">VB.NET</span>
+                        <span class="tech-tag">MonoGame</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://www.nuget.org/packages/PacDessert1436.MonoGame.StartKitVB/" target="_blank"
+                            class="project-link">
+                            <span>🔧</span> In Development
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">🎮</div>
+                    <h3 class="project-title">vbPixelGameEngine.Maui</h3>
+                    <p class="project-description">Cross-platform game engine for creating desktop/mobile games using
+                        VB.NET and .NET MAUI.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">.NET MAUI</span>
+                        <span class="tech-tag">VB.NET</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link disabled">
+                            <span>🔧</span> In Development
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-content">
+                <p>If you have any questions or collaboration opportunities, feel free to contact me:</p>
+                <div class="contact-links">
+                    <a href="mailto:benjamin_1436@qq.com" class="contact-link">
+                        <span class="contact-icon">📧</span>
+                        <span>Email</span>
+                    </a>
+                    <a href="https://github.com/Pac-Dessert1436" target="_blank" class="contact-link">
+                        <span class="contact-icon">👨‍💻</span>
+                        <span>GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 Pac-Dessert1436. All rights reserved.</p>
+            <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">
+                粤ICP备XXXXXXXX号
+            </a>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
