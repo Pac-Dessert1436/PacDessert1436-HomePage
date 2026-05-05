@@ -12,6 +12,24 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
+    - name: Install Nginx and prepare environment
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SERVER_HOST }}
+        username: ${{ secrets.SERVER_USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: 22
+        script: |
+          # Update packages and install Nginx
+          sudo apt update && sudo apt install -y nginx
+          
+          # Create target directory
+          sudo mkdir -p /var/www/homepage
+          
+          # Set ownership to www-data (created by Nginx installation)
+          sudo chown -R www-data:www-data /var/www/homepage
+          sudo chmod -R 755 /var/www/homepage
+
     - name: Deploy to server
       uses: appleboy/scp-action@v0.1.7
       with:
@@ -20,10 +38,11 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         source: "./*"
         target: "/var/www/homepage"
-        strip_components: 1
+        strip_components: 0
         overwrite: true
+        rm: false
 
-    - name: Restart web server
+    - name: Configure and restart web server for port 5000
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.SERVER_HOST }}
@@ -31,4 +50,41 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
         script: |
-          sudo systemctl reload nginx
+          # Check if files are deployed correctly
+          echo "Checking deployed files..."
+          ls -la /var/www/homepage
+          
+          # Ensure proper ownership and permissions
+          sudo chown -R www-data:www-data /var/www/homepage
+          sudo chmod -R 755 /var/www/homepage
+          
+          # Create/update nginx configuration for port 5000
+          sudo tee /etc/nginx/conf.d/homepage.conf > /dev/null <<EOF
+          server {
+              listen 5000;
+              listen [::]:5000;
+              
+              root /var/www/homepage;
+              index index.html index.en.html;
+              
+              server_name _;
+              
+              location / {
+                  try_files \$uri \$uri/ =404;
+              }
+              
+              # Security headers
+              add_header X-Frame-Options "SAMEORIGIN" always;
+              add_header X-XSS-Protection "1; mode=block" always;
+              add_header X-Content-Type-Options "nosniff" always;
+          }
+          EOF
+          
+          # Restart nginx to apply configuration
+          sudo systemctl restart nginx
+          
+          # Check nginx status
+          sudo systemctl status nginx --no-pager
+          
+          # Check if port 5000 is listening
+          sudo netstat -tlnp | grep 5000 || echo "Port 5000 may not be open yet"
