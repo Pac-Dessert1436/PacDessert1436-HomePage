@@ -3,10 +3,10 @@
 > 🌐 **网站 / Website**: https://www.pac-dessert1436.net/
 
 ## 📢 重要通知
-本网站将于 **2026年9月21日** 关停（因本人准备考研，服务器到期不再续费），感谢您的访问！
+本网站于 **2026年9月21日** 关停。因本人准备考研，服务器到期，今年12月底重新购买服务器。感谢您的访问！
 
 ## Important Notice
-This website will be shut down on **September 21, 2026** (due to my postgraduate exam preparation, server will not be renewed). Thank you for visiting!
+This website has been shut down since **September 21, 2026**, owing to my postgraduate exam preparation, along with the expiration of my server. My server will not be re-purchased until the end of the December 2026. Thank you for visiting!
 
 ---
 
